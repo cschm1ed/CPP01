@@ -1,42 +1,39 @@
-#**************************************************************************** #
-# #
-# :: : :: :: :: ::#
-#Makefile : + : : + : : + : #
-#+ : + + : + + : + #
-#By : cschmied < cschmied @student .42wolfsburg.de + # + + : + +# + #
-#+ #+ #+ #+ #+ #+ + #+ #
-#Created : 2023 / 06 / 18 12 : 42 : 08 by cschmied # + # # + # #
-#Updated : 2023 / 06 / 18 12 : 42 : 08 by cschmied## # ########.fr #
-# #
-#**************************************************************************** #
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cschmied <cschmied@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/06/18 13:51:14 by cschmied          #+#    #+#              #
+#    Updated: 2023/06/18 13:51:14 by cschmied         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME := violence
+NAME		:= violence
 
-           SRCS := main.cpp humanA.cpp humanB.cpp weapon.cpp
+SRCS		:= main.cpp humanA.cpp humanB.cpp weapon.cpp
 
-                        OBJS := $(SRCS
-                                   :.cpp =.o)
+OBJS		:= $(SRCS:.cpp=.o)
 
-                                   CFLAGS := -Wall - Werror - Wextra - std =
-                                                  c++ 98 - fsanitize = address
+CFLAGS		:= -Wall -Werror -Wextra -std=c++98 -fsanitize=address
 
-                                                      CC := g++
+CC			:= g++
 
-                                                             $(NAME)
-    : $(OBJS) $(CC) $(CFLAGS) $ ^ -o $ @
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $^ -o $@
 
-                                              %.o
-    : %.cpp $(CC) $(CFLAGS) - c $ < -o $ @
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
-                                              .PHONY : clean all re fclean
+.PHONY: clean all re fclean
 
-                                                           clean : rm -
-                                          rf $(OBJS)
+clean:
+	rm -rf $(OBJS)
 
-                                              fclean : clean rm -
-                                                       rf $(NAME)
+fclean: clean
+	rm -rf $(NAME)
 
-                                                           re : fclean all
+re: fclean all
 
-                                                                    all
-    : $(NAME)
+all: $(NAME)
