@@ -1,27 +1,42 @@
-NAME		:= brain
+#**************************************************************************** #
+# #
+# :: : :: :: :: ::#
+#Makefile : + : : + : : + : #
+#+ : + + : + + : + #
+#By : cschmied < cschmied @student .42wolfsburg.de + # + + : + +# + #
+#+ #+ #+ #+ #+ #+ + #+ #
+#Created : 2023 / 06 / 18 12 : 42 : 01 by cschmied # + # # + # #
+#Updated : 2023 / 06 / 18 12 : 42 : 01 by cschmied## # ########.fr #
+# #
+#**************************************************************************** #
 
-SRCS		:= main.cpp
+NAME := brain
 
-OBJS		:= $(SRCS:.cpp=.o)
+           SRCS := main.cpp
 
-CFLAGS		:= -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+                        OBJS := $(SRCS
+                                   :.cpp =.o)
 
-CC			:= g++
+                                   CFLAGS := -Wall - Werror - Wextra - std =
+                                                  c++ 98 - fsanitize = address
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $^ -o $@
+                                                      CC := g++
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+                                                             $(NAME)
+    : $(OBJS) $(CC) $(CFLAGS) $ ^ -o $ @
 
-.PHONY: clean all re fclean
+                                              %.o
+    : %.cpp $(CC) $(CFLAGS) - c $ < -o $ @
 
-clean:
-	rm -rf $(OBJS)
+                                              .PHONY : clean all re fclean
 
-fclean: clean
-	rm -rf $(NAME)
+                                                           clean : rm -
+                                          rf $(OBJS)
 
-re: fclean all
+                                              fclean : clean rm -
+                                                       rf $(NAME)
 
-all: $(NAME)
+                                                           re : fclean all
+
+                                                                    all
+    : $(NAME)
