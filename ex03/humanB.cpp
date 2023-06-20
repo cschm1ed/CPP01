@@ -14,7 +14,6 @@
 
 HumanB::HumanB(std::string name) : name(name) {
   std::cout << "constructor human " << name << " called\n";
-  weapon = NULL;
 }
 
 HumanB::~HumanB() { std::cout << "destructor human " << name << " called\n"; }

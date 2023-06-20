@@ -22,7 +22,16 @@ int main(int argc, char **argv) {
   std::string str1 = argv[2];
   std::string str2 = argv[3];
   std::ifstream file_in(filename);
+  if (!file_in) {
+	  std::cout << "ERROR: file could not be opened\n";
+	  return 1;
+  }
   std::ofstream file_out(filename + ".replace");
+  if (!file_out) {
+	  std::cout << "ERROR: could not create outfile\n";
+	  file_in.close();
+	  return 1;
+  }
   std::string tmp;
   size_t pos;
 
